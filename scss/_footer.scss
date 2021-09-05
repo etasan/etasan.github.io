@@ -1,0 +1,26 @@
+.footer {
+  background-color: $darkBlue;
+  color: $white;
+  padding: 2rem 2rem 1rem 2rem;
+  text-align: center;
+
+  &__social {
+    @include breakpoint-down(medium) {
+      margin-bottom: 1.875rem;
+    }
+
+    a {
+      display: inline-block;
+      height: 1.25rem;
+    }
+
+    a:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.8125rem;
+    color: $grayishBlue;
+  }
+}

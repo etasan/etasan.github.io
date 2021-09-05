@@ -1,0 +1,190 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box; //include final padding in elements
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Public Sans", sans-serif;
+  font-size: $font-med; //(18/16) 18 olmasını istersek
+  font-weight: 300;
+  color: $grayishBlue;
+  line-height: 1.3;
+  min-height: 100%; //sayfa içeriğine göre değil istediğimiz kadar scroll
+  overflow-x: hidden;
+
+  @include breakpoint-up(large) {
+    font-size: $font-med;
+  }
+
+  &.noscroll {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  line-height: 1.15;
+  color: $darkBlue;
+  margin-top: 0px;
+}
+
+h1 {
+  font-size: 2.3125rem;
+  margin-bottom: 1.5rem;
+
+  @include breakpoint-up(large) {
+    font-size: $font-xlg;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+  margin-bottom: 1.5625rem;
+
+  @include breakpoint-up(large) {
+    font-size: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+}
+
+h3 {
+  margin-bottom: 0;
+
+  @include breakpoint-up(medium) {
+    color: $grayishBlue;
+  }
+}
+
+p {
+  line-height: 1.5;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+//Spacing
+.container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+
+  @include breakpoint-up(large) {
+    max-width: 69.375rem;
+    margin: 0 auto 0 15rem;
+  }
+
+  &--pall {
+    padding-top: 4.375rem;
+    padding-right: 1.5rem;
+    padding-bottom: 4.375rem;
+    padding-left: 1.5rem;
+
+    @include breakpoint-down(small) {
+    }
+
+    @include breakpoint-up(large) {
+      padding-top: 5rem;
+      padding-bottom: 4.1rem;
+      padding-left: 3.5rem;
+    }
+  }
+
+  &--py {
+    padding-top: 4.375rem;
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  &--px {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  &--pt {
+    padding-top: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-top: 6rem;
+    }
+  }
+
+  &--pr {
+    padding-right: 1.5rem;
+  }
+
+  &--pb {
+    padding-bottom: 4.375rem;
+
+    @include breakpoint-up(large) {
+      padding-bottom: 6rem;
+    }
+  }
+
+  &--pl {
+    padding-left: 1.5rem;
+  }
+}
+
+//flexbox
+.flex {
+  display: flex;
+
+  &-jc-sb {
+    justify-content: space-between;
+  }
+
+  &-jc-c {
+    justify-content: center;
+  }
+
+  &-ai-c {
+    align-items: center;
+  }
+}
+
+//Visibility
+.hide-for-smartphone {
+  //hide for just mobile
+  @include breakpoint-down(small) {
+    display: none !important;
+  }
+}
+
+.hide-for-bscreen {
+  // hide for tablet and mobile
+  @include breakpoint-up(medium) {
+    display: none !important;
+  }
+}
+
+.hide-for-mobile {
+  //hide for tablet and mobile
+  @include breakpoint-down(medium) {
+    display: none !important;
+  }
+}
+
+.hide-for-desktop {
+  //hide for desktop viewport widths
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}
